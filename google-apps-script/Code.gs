@@ -38,7 +38,7 @@ function doPost(e) {
         for (const x of entries.filter(x=>x.who===who)) {
           const id=String(x.id||'').slice(0,120);
           const date=String(x.date||'');
-          if (!id || !/^\\d{4}-\\d{2}-\\d{2}$/.test(date)) continue;
+          if (!id || !/^\d{4}-\d{2}-\d{2}$/.test(date)) continue;
           const row=[id,date,who,String(x.kind||'log').slice(0,40),
             String(x.type||'').slice(0,100),Number(x.km)||0,Number(x.minutes)||0,
             Number(x.hr)||'',Number(x.rpe)||'',String(x.status||'').slice(0,30),
