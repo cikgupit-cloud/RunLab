@@ -68,7 +68,7 @@ async function sendSync(){
  var btn=document.querySelector("[data-sync-send]");if(btn){btn.disabled=true;btn.textContent="Menghantar..."}
  try{
   await fetch(SYNC_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({action:"push",token:secret,entries:entries})});
-  toast("Permintaan dihantar. Sahkan rekod dalam Google Sheets.");
+  toast("Permintaan dihantar, belum disahkan. Semak RUNLAB SYNC dan Apps Script Executions.");
  }catch(err){toast("Gagal menghantar. Semak sambungan internet.")}
  finally{if(btn){btn.disabled=false;btn.textContent="Hantar rekod ke Google Sheets"}}
 }
