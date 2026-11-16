@@ -48,9 +48,13 @@ function doPost(e) {
           counts[who]++;
         }
       }
+      console.log('RUNLAB Sync counts:', JSON.stringify(counts));
       return reply({ok:true,counts});
     }
     throw Error('Tindakan tidak sah');
-  } catch(err) {return reply({ok:false,error:String(err.message||err)})}
+  } catch(err) {
+    console.error('RUNLAB Sync error:', String(err.message || err));
+    return reply({ok:false,error:String(err.message||err)});
+  }
 }
 function reply(obj){return ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(ContentService.MimeType.JSON)}
